@@ -1,0 +1,14 @@
+mkdisk -path=/home/user/Disco1.dsk -size=50 -unit=k
+mkdisk -path=/home/user/Disco2.dsk -size=1
+mkdisk -path=/home/user/Disco3.dsk -size=10 -unit=k fit=bf
+
+rmdisk -path=/home/user/Disco2.dsk
+rmdisk -path=/home/user/Disco2.dsk
+rmdisk -path=/home/user/Disco3.dsk
+
+fdisk -path=/home/user/Disco1.dsk -name=prueba -size=100 -unit=k
+fdisk -path=/home/user/Disco1.dsk -name=prueba5 -size=1 -unit=k
+fdisk -path=/home/user/Disco1.dsk -name=prueba -size=10 -unit=k -type=e
+fdisk -path=/home/user/Disco1.dsk -name=prueba4 -size=5 -unit=k -type=e
+fdisk -path=/home/user/Disco1.dsk -name=prueba -add -delete=full
+fdisk -path=/home/user/Disco1.dsk -name=prueba -delete=full

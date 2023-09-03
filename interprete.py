@@ -88,11 +88,17 @@ def comFdisk(args) -> None:
         parser.add_argument("-type", default='p')
         parser.add_argument("-fit", default='w')
         parser.add_argument("-delete")
-        parser.add_argument("-add")
+        parser.add_argument("-add", nargs='?', const="")
         args = parser.parse_args(args)
 
         args.fit = args.fit[:1]
 
+        if args.fit not in ['f', 'w', 'b']:
+            raise Exception("Error en el parametro fit")
+        if args.unit not in ['m', 'k', 'b']:
+            raise Exception("Error en el parametro unit")
+        if args.type not in ['p', 'e', 'l']:
+            raise Exception("Error en el parametro type")
         if re.search("[.][d|D][s|S][k|K]", args.path) is None:
             raise Exception("La extensión del archivo debe ser .dsk")
         
